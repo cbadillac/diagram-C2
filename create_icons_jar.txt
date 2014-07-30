@@ -1,0 +1,1 @@
+jar cf Icons.jar -C icons .
