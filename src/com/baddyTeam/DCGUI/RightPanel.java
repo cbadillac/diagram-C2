@@ -129,7 +129,9 @@ public class RightPanel extends JPanel {
             lines.remove(l);
         }
         elements.remove(nodeView);
+        nodeView.getNode().killAll();
         nodeView = null;
+
         repaintView();
     }
 
