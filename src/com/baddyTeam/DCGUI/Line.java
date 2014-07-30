@@ -35,30 +35,12 @@ public class Line {
 	
 	void updateView(Graphics g) {
 
-        if (vect2 != null && vect1!=null){
-            if (!vect2.isIgnore() && !vect1.isIgnore()){
-
-                Graphics2D g2 = (Graphics2D) g;
-                line2D.setLine(vect1.getX() + relativeVect1.getX() , vect1.getY() + relativeVect1.getY(),
-                        vect2.getX() + relativeVect2.getX() , vect2.getY() + relativeVect2.getY());
-                g2.setColor(color.BLACK);
-                g2.setStroke(new BasicStroke(2f));
-                g2.draw(line2D);
-
-            }
-
-            if (vect2.isIgnore()){
-                onObject.getNode().setNext(null);
-                vect2 = null;
-            }
-
-            if(vect1.isIgnore()){
-                underObject.getNode().disconnect();
-            }
-
-        }
-
-
+        Graphics2D g2 = (Graphics2D) g;
+        line2D.setLine(vect1.getX() + relativeVect1.getX() , vect1.getY() + relativeVect1.getY(),
+        vect2.getX() + relativeVect2.getX() , vect2.getY() + relativeVect2.getY());
+        g2.setColor(color.BLACK);
+        g2.setStroke(new BasicStroke(2f));
+        g2.draw(line2D);
 
 //		g2.drawLine(vect1.getX() + relativeVect1.getX() , vect1.getY() + relativeVect1.getY(), 
 //				    vect2.getX() + relativeVect1.getX() , vect2.getY() + relativeVect2.getY());

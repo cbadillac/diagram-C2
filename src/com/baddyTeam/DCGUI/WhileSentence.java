@@ -21,8 +21,8 @@ public class WhileSentence extends NodeDC {
 
         super.next        = new StringNode("{");
         this.nextContinue = new StringNode("}");
-        super.next.setNext(this.nextContinue);
-        this.nextContinue.setNext(null);
+        super.next.setNextSimple(this.nextContinue);
+        this.nextContinue.setNextSimple(null);
     }
 
     @Override

@@ -22,9 +22,9 @@ public class IfSentence extends NodeDC {
         super.next        = new StringNode("{");
         this.nextFalse    = new StringNode("} else {");
         this.nextContinue = new StringNode("}");
-        super.next.setNext(this.nextFalse);
-        this.nextFalse.setNext(this.nextContinue);
-        this.nextContinue.setNext(null);
+        super.next.setNextSimple(this.nextFalse);
+        this.nextFalse.setNextSimple(this.nextContinue);
+        this.nextContinue.setNextSimple(null);
 	}
 
 	@Override
