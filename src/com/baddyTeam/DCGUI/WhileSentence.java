@@ -61,16 +61,23 @@ public class WhileSentence extends NodeDC {
     @Override
     public void setNext(NodeDC nextTrue) {
         if(nextTrue == null) {
-            this.next.setNextSimple(this.nextContinue);
+            super.next.setNextSimple(this.nextContinue);
             return;
         }
 
         NodeDC deepNode = nextTrue.getEnd();
         deepNode.setNextSimple(this.nextContinue);
-        this.next.setNextSimple(nextTrue);
+        super.next.setNextSimple(nextTrue);
     }
     public void setNextContinue(NodeDC nextContinue){
-        this.nextContinue.setNext(nextContinue);
+        if(nextContinue == null) {
+            this.nextContinue.setNextSimple(null);
+            return;
+        }
+
+        NodeDC deepNode = nextContinue.getEnd();
+        deepNode.setNextSimple(this.nextContinue.getNextStr());
+        super.next.setNextSimple(nextContinue);
     }
 
     @Override

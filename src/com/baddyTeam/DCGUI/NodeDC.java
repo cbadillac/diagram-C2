@@ -90,5 +90,9 @@ public abstract class NodeDC implements Iterator<NodeDC>{
     public void setIgnore(boolean ignore) {
         this.ignore = ignore;
     }
+
+    public NodeDC getNextStr(){
+        return this.next;
+    }
 }
 
