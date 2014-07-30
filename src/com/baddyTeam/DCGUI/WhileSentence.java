@@ -77,7 +77,7 @@ public class WhileSentence extends NodeDC {
 
         NodeDC deepNode = nextContinue.getEnd();
         deepNode.setNextSimple(this.nextContinue.getNextStr());
-        super.next.setNextSimple(nextContinue);
+        this.nextContinue.setNextSimple(nextContinue);
     }
 
     @Override

@@ -102,17 +102,16 @@ public class RightPanel extends JPanel {
                     l.getBelowNodeView().getNode().disconnect();
                 }else if (l.getBelowNodeView() == nodeView){
                     if (l.getAboveNodeView().getNode().getType() == NodeDC.typeOne){
-                        l.getAboveNodeView().getNode().setNext(null);
+                        l.getAboveNodeView().getNode().setNextSimple(null);
                     }else if (l.getAboveNodeView().getNode().getType() == NodeDC.typeTwo){
                         IfSentence ifNode =(IfSentence) l.getAboveNodeView().getNode();
                         if (l.getOriginType() == Line.nextTrue){
-                            ifNode.getNext().setNext(null);
+                            ifNode.getNext().setNextSimple(null);
                         }else if(l.getOriginType() == Line.nextFalse){
-                            ifNode.getNextFalse().setNext(null);
+                            ifNode.getNextFalse().setNextSimple(null);
                         }else if (l.getOriginType() == Line.nextContinue){
                             ifNode.getNext().setNextSimple(null);
                         }
-                        ifNode.getNext().setNext(null);
                     }
 
                 }

@@ -75,10 +75,24 @@ public class IfSentence extends NodeDC {
         this.next.setNextSimple(nextTrue);
     }
     public void setNextFalse(NodeDC nextFalse) {
-        this.nextFalse.setNext(nextFalse);
+        if(nextFalse == null) {
+            this.nextFalse.setNextSimple(this.nextContinue);
+            return;
+        }
+
+        NodeDC deepNode = nextFalse.getEnd();
+        deepNode.setNextSimple(this.nextFalse.getNextStr());
+        this.nextFalse.setNextSimple(nextFalse);
     }
     public void setNextContinue(NodeDC nextContinue){
-        this.nextContinue.setNext(nextContinue);
+        if(nextContinue == null) {
+            this.nextContinue.setNextSimple(null);
+            return;
+        }
+
+        NodeDC deepNode = nextContinue.getEnd();
+        deepNode.setNextSimple(this.nextContinue.getNextStr());
+        this.nextContinue.setNextSimple(nextContinue);
     }
 
     public NodeDC getEnd(){

@@ -58,7 +58,6 @@ public abstract class NodeDC implements Iterator<NodeDC>{
 	}
 	public void setNext(NodeDC nextNode) {
         if(nextNode == null) {
-            this.next = null;
             return;
         }
 
