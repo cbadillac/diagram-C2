@@ -89,6 +89,8 @@ public abstract class NodeDCView implements Cloneable {
     }
 
     void deleteNodeDC() {
+        if(node == null)
+            return;
         node.setIgnore(true);
         this.node = null;
     }

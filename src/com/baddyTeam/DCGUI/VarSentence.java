@@ -60,4 +60,9 @@ public class VarSentence extends NodeDC {
 		this.varType = varType;
 	}
 
+    public void killAll(){
+        super.killAll();
+        this.next = null;
+        this.view = null;
+    }
 }

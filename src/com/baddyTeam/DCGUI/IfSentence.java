@@ -103,4 +103,13 @@ public class IfSentence extends NodeDC {
         return (NodeDC)it;
     }
 
+    public void killAll(){
+        super.killAll();
+        this.nextContinue = null;
+        this.nextFalse = null;
+        this.next = null;
+        this.view = null;
+        this.conditionText = null;
+    }
+
 }

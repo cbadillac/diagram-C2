@@ -40,4 +40,9 @@ public class CSentence extends NodeDC {
 		this.text = text;
 	}
 
+    public void killAll(){
+        super.killAll();
+        this.next = null;
+        this.view = null;
+    }
 }

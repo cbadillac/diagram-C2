@@ -53,6 +53,10 @@ public abstract class NodeDC implements Iterator<NodeDC>{
 	public abstract NodeDCView getView();
     public abstract String getText();
 
+    public void killAll(){
+        this.next = null;
+    }
+
 	public NodeDC getNext() {
 		return (this.next instanceof StringNode)? null: this.next;
 	}

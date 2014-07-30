@@ -38,4 +38,9 @@ public class StringNode extends NodeDC{
         return "";
     }
 
+    public void killAll(){
+        super.killAll();
+        this.text = null;
+    }
+
 }
