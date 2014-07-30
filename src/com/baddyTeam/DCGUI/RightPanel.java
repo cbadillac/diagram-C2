@@ -112,8 +112,14 @@ public class RightPanel extends JPanel {
                         }else if (l.getOriginType() == Line.nextContinue){
                             ifNode.getNext().setNextSimple(null);
                         }
+                    }else if (l.getAboveNodeView().getNode().getType() == NodeDC.typeThree) {
+                        IfSentence ifNode = (IfSentence) l.getAboveNodeView().getNode();
+                        if (l.getOriginType() == Line.nextTrue) {
+                            ifNode.getNext().setNextSimple(null);
+                        }  else if (l.getOriginType() == Line.nextContinue) {
+                            ifNode.getNext().setNextSimple(null);
+                        }
                     }
-
                 }
                 toeraseLines.add(l);
             }
