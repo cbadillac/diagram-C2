@@ -78,7 +78,7 @@ public class MouseListener extends MouseAdapter {
 				Vector r2 = new Vector(nodeViewDest.getWIDTH()/2-1,0);
 
                 if (originNode.getType() == NodeDC.typeOne && (originNode.getNext() == null)){
-                    originNode.setNext(destNode);
+                    originNode.setNextSimple(destNode);
 
                     Line line = new Line(v1, v2, r1, r2, nodeViewOrigin, nodeViewDest, Line.nextContinue);
                     panel.getLines().add(line);
