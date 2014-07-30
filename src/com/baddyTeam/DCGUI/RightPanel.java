@@ -93,7 +93,7 @@ public class RightPanel extends JPanel {
     }
 
     public void deleteNodeDCView(NodeDCView nodeView){
-        nodeView.deleteNodeDC();
+
         ArrayList<Line> toeraseLines = new ArrayList<Line>();
 
         for(Line l: lines){
@@ -106,18 +106,18 @@ public class RightPanel extends JPanel {
                     }else if (l.getAboveNodeView().getNode().getType() == NodeDC.typeTwo){
                         IfSentence ifNode =(IfSentence) l.getAboveNodeView().getNode();
                         if (l.getOriginType() == Line.nextTrue){
-                            ifNode.getNext().setNextSimple(null);
+                            ifNode.setNext(null);
                         }else if(l.getOriginType() == Line.nextFalse){
-                            ifNode.getNextFalse().setNextSimple(null);
+                            ifNode.setNextFalse(null);
                         }else if (l.getOriginType() == Line.nextContinue){
-                            ifNode.getNext().setNextSimple(null);
+                            ifNode.setNextContinue(null);
                         }
                     }else if (l.getAboveNodeView().getNode().getType() == NodeDC.typeThree) {
-                        IfSentence ifNode = (IfSentence) l.getAboveNodeView().getNode();
+                        WhileSentence whileNode = (WhileSentence) l.getAboveNodeView().getNode();
                         if (l.getOriginType() == Line.nextTrue) {
-                            ifNode.getNext().setNextSimple(null);
+                            whileNode.setNext(null);
                         }  else if (l.getOriginType() == Line.nextContinue) {
-                            ifNode.getNext().setNextSimple(null);
+                            whileNode.setNextContinue(null);
                         }
                     }
                 }
@@ -128,9 +128,9 @@ public class RightPanel extends JPanel {
         for(Line l: toeraseLines){
             lines.remove(l);
         }
-        elements.remove(nodeView);
         nodeView.getNode().killAll();
-        nodeView = null;
+        elements.remove(nodeView);
+        nodeView.deleteNodeDC();
 
         repaintView();
     }
